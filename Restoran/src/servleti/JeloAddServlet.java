@@ -5,9 +5,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import dao.JelovnikDAO;
-import model.Jelovnik;
-import model.Jelo;
+
+import dao.marko.JelovnikDAO;
+import model.marko.Jelo;
+import model.marko.Jelovnik;
 
 /**
  * Ovaj servlet mi treba kako ne bih morao da prikazujem listu karti pica pri ubacivanju nove karte pica, njega treba izmeniti...

@@ -7,10 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.KuvarDAO;
-import dao.RestoranDao;
-import model.Kuvar;
-import model.Restoran;
+import dao.marko.KuvarDAO;
+import dao.marko.RestoranDao;
+import model.marko.Kuvar;
+import model.marko.Restoran;
 
 
 

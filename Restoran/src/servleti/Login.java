@@ -8,14 +8,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.KorisnikDAO;
-import model.Korisnik;
-import dao.MenadzerSistemaDao;
-import model.MenadzerSistema;
-import dao.PonudjacDAO;
-import model.Ponudjac;
-import model.MenadzerRestorana;
-import dao.MenadzerRestoranaDao;
+import dao.marko.KorisnikDAO;
+import dao.marko.MenadzerRestoranaDao;
+import dao.marko.MenadzerSistemaDao;
+import dao.marko.PonudjacDAO;
+import model.marko.Korisnik;
+import model.marko.MenadzerRestorana;
+import model.marko.MenadzerSistema;
+import model.marko.Ponudjac;
 
 /**
  * Servlet implementation class LoginServlet

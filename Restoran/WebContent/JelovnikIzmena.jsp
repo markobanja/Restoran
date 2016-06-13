@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@page import="model.Jelovnik" %>
-<%@page import="dao.JelovnikDAO" %>
+<%@page import="model.marko.Jelovnik" %>
+<%@page import="dao.marko.JelovnikDAO" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

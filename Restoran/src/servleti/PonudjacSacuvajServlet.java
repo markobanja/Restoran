@@ -6,8 +6,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.PonudjacDAO;
-import model.Ponudjac;
+import dao.marko.PonudjacDAO;
+import model.marko.Ponudjac;
 
 /**
  * Servlet implementation class PonudjacSacuvajServlet

@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.KartaPicaDAO;
+import dao.marko.KartaPicaDAO;
 
 /**
  * Servlet implementation class DeleteKomponenta

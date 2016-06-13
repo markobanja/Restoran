@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@page import="model.Jelo" %>
-<%@page import="model.Jelovnik" %>
-<%@page import="dao.JelovnikDAO" %>
+<%@page import="model.marko.Jelo" %>
+<%@page import="model.marko.Jelovnik" %>
+<%@page import="dao.marko.JelovnikDAO" %>
 <%@page import="java.util.List" %>
 <%@page import="util.ConnectionManager" %>
 <%@page import="java.sql.Statement" %>

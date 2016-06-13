@@ -6,8 +6,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.KartaPicaDAO;
-import model.KartaPica;
+import dao.marko.KartaPicaDAO;
+import model.marko.KartaPica;
 
 /**
  * Servlet implementation class KartaPicaAddServlet

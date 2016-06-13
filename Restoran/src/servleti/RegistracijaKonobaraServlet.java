@@ -7,10 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.KonobarDAO;
-import dao.RestoranDao;
-import model.Konobar;
-import model.Restoran;
+import dao.marko.KonobarDAO;
+import dao.marko.RestoranDao;
+import model.marko.Konobar;
+import model.marko.Restoran;
 
 
 

@@ -6,8 +6,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.PonudaDAO;
-import model.Ponuda;
+import dao.marko.PonudaDAO;
+import model.marko.Ponuda;
 
 /**
  * Servlet implementation class PrikazKonobara

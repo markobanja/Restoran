@@ -6,10 +6,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.PonudaDAO;
-import dao.PonudjacDAO;
-import model.Ponuda;
-import model.Ponudjac;
+import dao.marko.PonudaDAO;
+import dao.marko.PonudjacDAO;
+import model.marko.Ponuda;
+import model.marko.Ponudjac;
 
 /**
  * Servlet implementation class SacuvajOdabraneServlet

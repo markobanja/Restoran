@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@page import="model.Pice" %>
-<%@page import="model.KartaPica" %>
-<%@page import="dao.KartaPicaDAO" %>
+<%@page import="model.marko.Pice" %>
+<%@page import="model.marko.KartaPica" %>
+<%@page import="dao.marko.KartaPicaDAO" %>
 <%@page import="java.util.List" %>
 <%@page import="util.ConnectionManager" %>
 <%@page import="java.sql.Statement" %>

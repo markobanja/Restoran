@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.MenadzerRestoranaDao;
-import model.MenadzerRestorana;
+import dao.marko.MenadzerRestoranaDao;
+import model.marko.MenadzerRestorana;
 
 /**
  * Servlet implementation class PrikazJedneKomponente

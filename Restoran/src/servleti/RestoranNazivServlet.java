@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.RestoranNazivDAO;
-import model.RestoranNaziv;
+import dao.marko.RestoranNazivDAO;
+import model.marko.RestoranNaziv;
 
 /**
  * Servlet implementation class PrikazJedneKomponente

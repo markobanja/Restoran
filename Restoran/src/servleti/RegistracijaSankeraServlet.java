@@ -7,10 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.RestoranDao;
-import dao.SankerDAO;
-import model.Restoran;
-import model.Sanker;
+import dao.marko.RestoranDao;
+import dao.marko.SankerDAO;
+import model.marko.Restoran;
+import model.marko.Sanker;
 
 
 

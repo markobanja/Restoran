@@ -3,8 +3,8 @@
 <%@page import="java.sql.Statement" %>
 <%@page import="util.ConnectionManager" %>
 <%@page import="java.sql.ResultSet" %>
-<%@page import="dao.MenadzerRestoranaDao" %>
-<%@page import="model.MenadzerRestorana" %>
+<%@page import="dao.marko.MenadzerRestoranaDao" %>
+<%@page import="model.marko.MenadzerRestorana" %>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

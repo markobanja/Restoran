@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@page import="model.Konobar" %>
-<%@page import="dao.KonobarDAO" %>
-<%@page import="dao.PazarDao" %>
+    <%@page import="model.marko.Konobar" %>
+<%@page import="dao.marko.KonobarDAO" %>
+<%@page import="dao.marko.PazarDao" %>
 <%@page import="java.util.List" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@page import="dao.MenadzerRestoranaDao" %>
-<%@page import="model.MenadzerRestorana" %>
-<%@page import="dao.PonudaDAO" %>
-<%@page import="model.Namirnice" %>
+<%@page import="dao.marko.MenadzerRestoranaDao" %>
+<%@page import="model.marko.MenadzerRestorana" %>
+<%@page import="dao.marko.PonudaDAO" %>
+<%@page import="model.marko.Namirnice" %>
 <%@page import="java.util.List" %>
 
 
