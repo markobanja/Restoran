@@ -1,4 +1,4 @@
-package servleti;
+package servleti.marko;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -11,15 +11,15 @@ import model.marko.KartaPica;
 import model.marko.Pice;
 
 /**
- * Ovaj servlet mi treba kako ne bih morao da prikazujem listu karti pica pri ubacivanju nove karte pica, njega treba izmeniti...
+ * Servlet implementation class PiceServlet
  */
-public class AddPiceServlet extends HttpServlet {
+public class PiceAddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddPiceServlet() {
+    public PiceAddServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,22 +29,21 @@ public class AddPiceServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nazivPica = request.getParameter("nazivPica");
-		System.out.println(nazivPica);
 		String opis = request.getParameter("opis");
-		System.out.println(opis);
 		String price = request.getParameter("cena");
-		System.out.println(price);
-		String email = request.getParameter("email");
 		double cena = Double.parseDouble(price);
-		
-		String naziv = request.getParameter("labela");
-		System.out.println(naziv);
-		KartaPicaDAO kartDAO = new KartaPicaDAO();
-		KartaPica karta = kartDAO.GetKartaPicaIDbyNaziv(naziv);
-		Pice pice = new Pice(nazivPica,opis,cena,karta);
+		String idKart = request.getParameter("idKart");
+		String delimiter = "";
+		String[] tokens = idKart.split(delimiter);
+		for (int i = 0; i < tokens.length; i++)
+		    System.out.println(tokens[i]);
+		int idKarta=Integer.parseInt(tokens[0]);
+		KartaPicaDAO karDao = new KartaPicaDAO();
+		KartaPica kartaPica = karDao.GetKartaPicaById(idKarta);
 		KartaPicaDAO kartaDAO = new KartaPicaDAO();
+		Pice pice = new Pice(nazivPica,opis,cena,kartaPica);
 		kartaDAO.insertPice(pice);
-		response.sendRedirect("UnosPica.jsp?email="+email);
+		response.sendRedirect("UnosPica.jsp");
 		System.out.println("insert");
 		return;
 	}

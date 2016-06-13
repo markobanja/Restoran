@@ -1,4 +1,4 @@
-package servleti;
+package servleti.marko;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,18 +6,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.marko.KartaPicaDAO;
+import dao.marko.PonudaDAO;
+
 
 /**
- * Servlet implementation class PonudjacSacuvajServlet
+ * Servlet implementation class SacuvajCenuServlet
  */
-public class KartaPicaSacuvaj extends HttpServlet {
+public class SacuvajCenuServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public KartaPicaSacuvaj() {
+    public SacuvajCenuServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,18 +27,12 @@ public class KartaPicaSacuvaj extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String id = request.getParameter("id");
-		String naziv = request.getParameter("naziv");
-		String opis = request.getParameter("opis");
 		String cena = request.getParameter("cena");
-		
-		KartaPicaDAO kartaDAO = new KartaPicaDAO();
-		kartaDAO.getUpdatePica(id, naziv, opis, cena);
-		
-		
-		
-		response.sendRedirect("KartaPica.jsp");
+		String email= request.getParameter("email");
+		int id= Integer.parseInt(request.getParameter("id"));
+		PonudaDAO ponudaDAO = new PonudaDAO();
+		ponudaDAO.insertCenaPonude(id,cena);
+		request.getRequestDispatcher("PrikazNamirnicaCena.jsp?email="+email).forward(request, response);
 	}
 
 	/**
@@ -45,6 +40,7 @@ public class KartaPicaSacuvaj extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

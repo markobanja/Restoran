@@ -1,4 +1,4 @@
-package servleti;
+package servleti.marko;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -14,13 +14,13 @@ import model.marko.Ponudjac;
 /**
  * Servlet implementation class SacuvajOdabraneServlet
  */
-public class SacuvajOdbijeneServlet extends HttpServlet {
+public class SacuvajOdabraneServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SacuvajOdbijeneServlet() {
+    public SacuvajOdabraneServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,7 +39,7 @@ public class SacuvajOdbijeneServlet extends HttpServlet {
 		String cena= ponuda.getCena();
 		String kolicina = ponuda.getKolicina();
 		String email= request.getParameter("email");
-		request.getRequestDispatcher("NeodabranePonude.jsp?naziv="+naziv+"&cena="+cena+"&kolicina="+kolicina+"&email="+email).forward(request, response);
+		request.getRequestDispatcher("OdabranePonude.jsp?naziv="+naziv+"&cena="+cena+"&kolicina="+kolicina+"&email="+email).forward(request, response);
 	}
 
 	/**

@@ -1,4 +1,4 @@
-package servleti;
+package servleti.marko;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -9,16 +9,17 @@ import javax.servlet.http.HttpServletResponse;
 import dao.marko.PonudaDAO;
 import model.marko.Ponuda;
 
+
 /**
- * Servlet implementation class PrikazKonobara
+ * Servlet implementation class AddPonudaServlet
  */
-public class PrikazKonobara extends HttpServlet {
+public class AddPonudaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PrikazKonobara() {
+    public AddPonudaServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,9 +28,12 @@ public class PrikazKonobara extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String email = request.getParameter("email");
 		String naziv = request.getParameter("naziv");
 		String kolicina = request.getParameter("kolicina");
+		System.out.println(naziv);
+		System.out.println(kolicina);
 
 		Ponuda ponuda = new Ponuda(naziv,kolicina);
 		PonudaDAO ponudaDAO = new PonudaDAO();
@@ -38,6 +42,7 @@ public class PrikazKonobara extends HttpServlet {
 		
 		
 		return;
+		
 	}
 
 	/**

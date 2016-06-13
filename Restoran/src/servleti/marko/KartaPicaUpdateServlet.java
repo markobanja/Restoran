@@ -1,4 +1,4 @@
-package servleti;
+package servleti.marko;
 
 import java.io.IOException;
 
@@ -14,13 +14,13 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class UpdateKomponenta
  */
-public class RestoranNazivUpdate extends HttpServlet {
+public class KartaPicaUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RestoranNazivUpdate() {
+    public KartaPicaUpdateServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,18 +29,12 @@ public class RestoranNazivUpdate extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int id = Integer.parseInt(request.getParameter("id"));
-		String nazivRest = request.getParameter("nazivRest");
-		String vrstaRest = request.getParameter("vrstaRest");
-		String jelovnik = request.getParameter("jelovnik");
-		String kartaPica = request.getParameter("kartaPica");
+		int id = Integer.parseInt(request.getParameter("idKarta"));
+		String naziv = request.getParameter("naziv");
 		
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("RestoranIzmena.jsp");
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("KartaPicaIzmena.jsp");
 		request.getSession(true).setAttribute("id",id);
-		request.getSession(true).setAttribute("nazivRest",nazivRest);
-		request.getSession(true).setAttribute("vrstaRest",vrstaRest);
-		request.getSession(true).setAttribute("jelovnik",jelovnik);
-		request.getSession(true).setAttribute("kartaPica",kartaPica);
+		request.getSession(true).setAttribute("nazivKarte",naziv);
 		  requestDispatcher.forward(request, response);
 	}
 

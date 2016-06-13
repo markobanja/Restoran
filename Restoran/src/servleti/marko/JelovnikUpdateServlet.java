@@ -1,25 +1,21 @@
-package servleti;
+package servleti.marko;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.marko.PonudjacDAO;
-import model.marko.Ponudjac;
-
 /**
- * Servlet implementation class DodavanjeRadnika
+ * Servlet implementation class JelovnikUpdateServlet
  */
-public class RegistracijaPonudjacaServlet extends HttpServlet {
+public class JelovnikUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RegistracijaPonudjacaServlet() {
+    public JelovnikUpdateServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,21 +25,7 @@ public class RegistracijaPonudjacaServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
-		String imePonudjaca = request.getParameter("imePonudjaca");
-		String prezimePonudjaca = request.getParameter("prezimePonudjaca");
-		String nazivKompanije = request.getParameter("nazivKompanije");
-		String email = request.getParameter("email");
-		String loznika = request.getParameter("lozinka");
-		String adresa = request.getParameter("adresa");
-		String brojTelefona = request.getParameter("brojTelefona");
-		
-		
-		
-		PonudjacDAO ponudjacDAO = new PonudjacDAO();
-		Ponudjac ponudjac = new Ponudjac(imePonudjaca, prezimePonudjaca, nazivKompanije, email, loznika, adresa, brojTelefona);
-		ponudjacDAO.insertPonudjac(ponudjac);
-		response.sendRedirect("login.html");
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -51,6 +33,7 @@ public class RegistracijaPonudjacaServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

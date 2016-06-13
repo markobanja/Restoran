@@ -1,4 +1,4 @@
-package servleti;
+package servleti.marko;
 
 import java.io.IOException;
 
@@ -14,13 +14,13 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class UpdateKomponenta
  */
-public class PonudjacUpdateServlet extends HttpServlet {
+public class RestoranNazivUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PonudjacUpdateServlet() {
+    public RestoranNazivUpdate() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,26 +30,18 @@ public class PonudjacUpdateServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
-		String ime = request.getParameter("ime");
-		String prezime = request.getParameter("prezime");
-		String nazivKompanije = request.getParameter("nazivKompanije");
-		String email = request.getParameter("email");
-		String password = request.getParameter("password");
-		String adresa = request.getParameter("adresa");
-		String brojTelefona = request.getParameter("brojTelefona");
+		String nazivRest = request.getParameter("nazivRest");
+		String vrstaRest = request.getParameter("vrstaRest");
+		String jelovnik = request.getParameter("jelovnik");
+		String kartaPica = request.getParameter("kartaPica");
 		
-		
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("PonudjacIzmena.jsp");
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("RestoranIzmena.jsp");
 		request.getSession(true).setAttribute("id",id);
-		request.getSession(true).setAttribute("ime",ime);
-		request.getSession(true).setAttribute("prezime",prezime);
-		request.getSession(true).setAttribute("nazivKompanije",nazivKompanije);
-		request.getSession(true).setAttribute("email",email);
-		request.getSession(true).setAttribute("password",password);
-		request.getSession(true).setAttribute("adresa",adresa);
-		request.getSession(true).setAttribute("brojTelefona",brojTelefona);
-
-		requestDispatcher.forward(request, response);
+		request.getSession(true).setAttribute("nazivRest",nazivRest);
+		request.getSession(true).setAttribute("vrstaRest",vrstaRest);
+		request.getSession(true).setAttribute("jelovnik",jelovnik);
+		request.getSession(true).setAttribute("kartaPica",kartaPica);
+		  requestDispatcher.forward(request, response);
 	}
 
 	/**

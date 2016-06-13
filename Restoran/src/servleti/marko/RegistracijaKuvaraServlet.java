@@ -1,4 +1,4 @@
-package servleti;
+package servleti.marko;
 
 import java.io.IOException;
 
@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.marko.KonobarDAO;
+import dao.marko.KuvarDAO;
 import dao.marko.RestoranDao;
-import model.marko.Konobar;
+import model.marko.Kuvar;
 import model.marko.Restoran;
 
 
@@ -17,13 +17,13 @@ import model.marko.Restoran;
 /**
  * Servlet implementation class RegistarKorisnikaServlet
  */
-public class RegistracijaKonobaraServlet extends HttpServlet {
+public class RegistracijaKuvaraServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RegistracijaKonobaraServlet() {
+    public RegistracijaKuvaraServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,9 +43,9 @@ public class RegistracijaKonobaraServlet extends HttpServlet {
 		String nazivRest = request.getParameter("idRestoran");
 		RestoranDao resDao = new RestoranDao();
 		Restoran restoran = resDao.GetRestoranByNaziv(nazivRest);
-		Konobar konobar = new Konobar(ime, prezime,konfekcijskiBroj,datumRodjenja,velicinaObuce,email,password,restoran);
-		KonobarDAO konobarDAO = new KonobarDAO();
-		konobarDAO.insertKonobar(konobar);
+		Kuvar kuvar = new Kuvar(ime, prezime,konfekcijskiBroj,datumRodjenja,velicinaObuce,email,password,restoran);
+		KuvarDAO kuvarDAO = new KuvarDAO();
+		kuvarDAO.insertKuvar(kuvar);
 		response.sendRedirect("ManagerPage.jsp");
 		
 		return;

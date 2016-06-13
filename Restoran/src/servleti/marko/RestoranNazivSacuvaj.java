@@ -1,4 +1,4 @@
-package servleti;
+package servleti.marko;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,19 +6,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.marko.KartaPicaDAO;
-import model.marko.KartaPica;
+import dao.marko.RestoranNazivDAO;
 
 /**
- * Servlet implementation class KartaPicaAddServlet
+ * Servlet implementation class PonudjacSacuvajServlet
  */
-public class KartaPicaAddServlet extends HttpServlet {
+public class RestoranNazivSacuvaj extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public KartaPicaAddServlet() {
+    public RestoranNazivSacuvaj() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,26 +27,21 @@ public class KartaPicaAddServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String naziv = request.getParameter("naziv");
-		String email = request.getParameter("email");
-		request.setAttribute("labela", naziv);
-		KartaPica karta = new KartaPica(naziv);
-		KartaPicaDAO kartaDAO = new KartaPicaDAO();
-		kartaDAO.insertKartaPica(karta);
-		request.getRequestDispatcher("UnosPica.jsp?email="+email).forward(request, response);
-		
-		
-		return;
-		
+		int id = Integer.parseInt(request.getParameter("idRest"));
+		String nazivRest = request.getParameter("nazivRest");
+		String vrstaRest = request.getParameter("vrstaRest");
+		RestoranNazivDAO restoranNazivDAO = new RestoranNazivDAO();
+		restoranNazivDAO.getUpdateRestoran(id, nazivRest,vrstaRest);
+		response.sendRedirect("RestoranNaziv.jsp?id="+id);
+		System.out.println(id+" "+nazivRest);
 	}
-	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		
 	}
 
 }

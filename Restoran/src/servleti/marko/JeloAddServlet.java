@@ -1,4 +1,4 @@
-package servleti;
+package servleti.marko;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,17 +7,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.marko.JelovnikDAO;
+import model.marko.Jelo;
+import model.marko.Jelovnik;
 
 /**
- * Servlet implementation class PonudjacSacuvajServlet
+ * Ovaj servlet mi treba kako ne bih morao da prikazujem listu karti pica pri ubacivanju nove karte pica, njega treba izmeniti...
  */
-public class JelovnikSacuvajServlet extends HttpServlet {
+public class JeloAddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public JelovnikSacuvajServlet() {
+    public JeloAddServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,18 +28,25 @@ public class JelovnikSacuvajServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String idJelo = request.getParameter("id");
-		String naziv = request.getParameter("naziv");
+		String nazivJela = request.getParameter("nazivJela");
+		System.out.println(nazivJela);
 		String opis = request.getParameter("opis");
-		String cena = request.getParameter("cena");
+		System.out.println(opis);
+		String price = request.getParameter("cena");
+		String email = request.getParameter("email");
+		System.out.println(price);
+		double cena = Double.parseDouble(price);
 		
+		String naziv = request.getParameter("labela");
+		System.out.println(naziv);
 		JelovnikDAO jelDAO = new JelovnikDAO();
-		jelDAO.getUpdateJelo(idJelo, naziv, opis, cena);
-		
-		
-		
-		response.sendRedirect("Jelovnik.jsp");
+		Jelovnik jelovnik = jelDAO.GetJelovnikIDbyNaziv(naziv);
+		Jelo jelo = new Jelo(nazivJela,opis,cena,jelovnik);
+		JelovnikDAO jeloDAO = new JelovnikDAO();
+		jeloDAO.insertJelo(jelo);
+		response.sendRedirect("UnosJelo.jsp?email="+email);
+		System.out.println("insert");
+		return;
 	}
 
 	/**
@@ -45,6 +54,7 @@ public class JelovnikSacuvajServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

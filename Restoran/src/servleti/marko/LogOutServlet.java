@@ -1,4 +1,4 @@
-package servleti;
+package servleti.marko;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,20 +6,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.marko.PonudaDAO;
-import model.marko.Ponuda;
-
-
 /**
- * Servlet implementation class AddPonudaServlet
+ * Servlet implementation class LogoutServletProdavnica
  */
-public class AddPonudaServlet extends HttpServlet {
+public class LogOutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddPonudaServlet() {
+    public LogOutServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,27 +25,16 @@ public class AddPonudaServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String email = request.getParameter("email");
-		String naziv = request.getParameter("naziv");
-		String kolicina = request.getParameter("kolicina");
-		System.out.println(naziv);
-		System.out.println(kolicina);
-
-		Ponuda ponuda = new Ponuda(naziv,kolicina);
-		PonudaDAO ponudaDAO = new PonudaDAO();
-		ponudaDAO.insertPonuda(ponuda);
-		request.getRequestDispatcher("PrikazNamirnica.jsp?email="+email).forward(request, response);
 		
-		
+		request.getSession(false).invalidate();
+		response.sendRedirect("login.html");
 		return;
-		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

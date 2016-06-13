@@ -1,24 +1,26 @@
-package servleti;
+package servleti.marko;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.marko.KartaPicaDAO;
+import dao.marko.PonudaDAO;
+import dao.marko.PonudjacDAO;
+import model.marko.Ponuda;
+import model.marko.Ponudjac;
 
 /**
- * Servlet implementation class DeleteKomponenta
+ * Servlet implementation class SacuvajOdabraneServlet
  */
-public class KartaPicaDeleteServlet extends HttpServlet {
+public class SacuvajOdbijeneServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public KartaPicaDeleteServlet() {
+    public SacuvajOdbijeneServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,17 +29,17 @@ public class KartaPicaDeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*HttpSession session = request.getSession();
-		if(session.getAttribute("menadzerrestorana")==null){
-			response.sendRedirect("login.html");
-			return;
-		}*/
-		int id = Integer.parseInt(request.getParameter("id"));
-		KartaPicaDAO karDAO = new KartaPicaDAO();
+		String idNamirnice = request.getParameter("idNamirnice");
 		
-		karDAO.deletePice(id);
-		response.sendRedirect("KartaPica.jsp");
-		return;
+		PonudaDAO ponudaDAO = new PonudaDAO();
+		Ponuda ponuda = ponudaDAO.getPonuda(idNamirnice);
+		
+		
+		String naziv = ponuda.getNaziv();
+		String cena= ponuda.getCena();
+		String kolicina = ponuda.getKolicina();
+		String email= request.getParameter("email");
+		request.getRequestDispatcher("NeodabranePonude.jsp?naziv="+naziv+"&cena="+cena+"&kolicina="+kolicina+"&email="+email).forward(request, response);
 	}
 
 	/**
@@ -45,6 +47,7 @@ public class KartaPicaDeleteServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

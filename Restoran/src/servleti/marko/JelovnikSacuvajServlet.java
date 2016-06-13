@@ -1,7 +1,6 @@
-package servleti;
+package servleti.marko;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -10,15 +9,15 @@ import javax.servlet.http.HttpServletResponse;
 import dao.marko.JelovnikDAO;
 
 /**
- * Servlet implementation class DeleteKomponenta
+ * Servlet implementation class PonudjacSacuvajServlet
  */
-public class JelovnikDeleteServlet extends HttpServlet {
+public class JelovnikSacuvajServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public JelovnikDeleteServlet() {
+    public JelovnikSacuvajServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,16 +26,18 @@ public class JelovnikDeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*HttpSession session = request.getSession();
-		if(session.getAttribute("menadzerrestorana")==null){
-			response.sendRedirect("login.html")
-			return;
-		}*/
+		// TODO Auto-generated method stub
+		String idJelo = request.getParameter("id");
+		String naziv = request.getParameter("naziv");
+		String opis = request.getParameter("opis");
+		String cena = request.getParameter("cena");
+		
 		JelovnikDAO jelDAO = new JelovnikDAO();
-		int id = Integer.parseInt(request.getParameter("id"));
-		jelDAO.deleteJelo(id);
+		jelDAO.getUpdateJelo(idJelo, naziv, opis, cena);
+		
+		
+		
 		response.sendRedirect("Jelovnik.jsp");
-		return;
 	}
 
 	/**
