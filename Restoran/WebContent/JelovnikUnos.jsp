@@ -4,8 +4,8 @@
 <html>
 <head>
 <link rel="stylesheet"  href="css.css" />
-<link rel="stylesheet" href="cssNavigation.css">
-<link rel="stylesheet" href="cssfajl.css">	
+<link rel="stylesheet" href="cssNavigationPurke.css">
+<link rel="stylesheet" href="cssfajlPurke.css">	
 <body>
 <%String email=request.getParameter("email");%>
 <nav class="navigation1">

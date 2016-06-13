@@ -12,9 +12,9 @@
 <head>
 <!-- Marko Proba -->
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet"  href="css.css" />
-<link rel="stylesheet" href="cssNavigation.css">
-<link rel="stylesheet" href="cssfajl.css">
+<link rel="stylesheet"  href="cssPurke.css" />
+<link rel="stylesheet" href="cssNavigationPurke.css">
+<link rel="stylesheet" href="cssfajlPurke.css">
 </head>
 <body style="background:white">
 <%
