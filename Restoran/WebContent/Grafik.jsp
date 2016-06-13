@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet"  href="css.css" />
 <link rel="stylesheet" href="cssNavigation.css">
 <link rel="stylesheet" href="cssfajl.css">
+</head>
 <body>
-<%String email=request.getParameter("email");%>
+<%String email= request.getParameter("email"); %>
 <nav class="navigation1">
 	<ul class="navlista1">
 		<li class="navitem1"><a href="ManagerPage.jsp?email=<%=email%>" class="navtekst1">Profil</a></li>
@@ -62,17 +62,8 @@
         <li style=float:right; class="navitem1"><a href="login.html" class="navtekst1">Odjavi se</a></li>
 	</ul>
 </nav>
-<div class="field">
-<h1>Definisanje karte pica</h1>
-<br>
-<br>
-<form action="KartaPicaAddServlet">
-  <input type="text" name="naziv" placeholder="naziv" class="centar"><br>
-  <br>
-  <input type="submit" value="dodaj" class="centar" style=margin-left:100px;>
-</form>
-</div>
-</body>
-</html>
+<div class="menResPon">
+		<img alt="slika" src="chart.jpg"  class="chart">
+		</div>
 </body>
 </html>

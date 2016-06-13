@@ -37,7 +37,7 @@ String id = request.getParameter("id");
             <ul class="dropdown1">
                 <li><a href="KartaPicaUnos.jsp?email=<%=email%>" class="navtekst1">Karta pica</a></li>
                 <li><a href="JelovnikUnos.jsp?email=<%=email%>" class="navtekst1">Jelovnik</a></li>
-                <li><a href="#" class="navtekst1">Raspored i reon rada</a></li>
+                <li><a href="DefinisanjeReona.jsp?email=<%=email%>" class="navtekst1">Raspored i reon rada</a></li>
             </ul>
         </li>
         <li class="navitem1">
@@ -64,7 +64,7 @@ String id = request.getParameter("id");
             <ul class="dropdown1">
             	<li><a href="Pazar.jsp?email=<%=email%>" class= "navtekst1">Prihod restorana</a></li>
                 <li><a href="OcenaRestorana.jsp?email=<%=email%>"  class="navtekst1">Ocena</a></li>
-                <li><a href="#"  class="navtekst1">Grafik posecenosti(dnevno i nedeljno)</a></li>
+                <li><a href="Grafik.jsp?email=<%=email%>"  class="navtekst1">Grafik posecenosti(dnevno i nedeljno)</a></li>
                 <li><a href="Konobari.jsp?email=<%=email%>"  class="navtekst1">Prikaz konobara</a></li>                
             </ul>
         </li>
