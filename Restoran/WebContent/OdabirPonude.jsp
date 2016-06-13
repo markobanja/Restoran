@@ -43,8 +43,7 @@ String email=request.getParameter("email");
             <ul class="dropdown1">
                 <li><a href="KartaPicaUnos.jsp?email=<%=email%>" class="navtekst1">Karta pica</a></li>
                 <li><a href="JelovnikUnos.jsp?email=<%=email%>" class="navtekst1">Jelovnik</a></li>
-                <li><a href="#" class="navtekst1">Raspored rada</a></li>
-                <li><a href="#" class="navtekst1">Reon rada</a></li>
+                <li><a href="#" class="navtekst1">Raspored i reon rada</a></li>
             </ul>
         </li>
         <li class="navitem1">
@@ -65,21 +64,33 @@ String email=request.getParameter("email");
                 <li><a href="OdabirPonude.jsp?email=<%=email%>" class="navtekst1">Odabir ponude</a></li>
             </ul>
         </li>
+        <li class="navitem1">
+            <a href="#" class="navtekst1">Prikaz:</a>
+            <br>
+            <ul class="dropdown1">
+            	<li><a href="Pazar.jsp?email=<%=email%>" class= "navtekst1">Prihod restorana</a></li>
+                <li><a href="OcenaRestorana.jsp?email=<%=email%>"  class="navtekst1">Ocena</a></li>
+                <li><a href="#"  class="navtekst1">Grafik posecenosti(dnevno i nedeljno)</a></li>
+                <li><a href="Konobari.jsp?email=<%=email%>"  class="navtekst1">Prikaz konobara</a></li>                
+            </ul>
+        </li>
         <li style=float:right; class="navitem1"><a href="login.html" class="navtekst1">Odjavi se</a></li>
 	</ul>
 </nav>
 <div>
-<h1 style="margin-left:536px">Odabir ponude:</h1>
+<h1 style="margin-left:543px">Odabir ponude:</h1>
 <br>
 <br>
 <br>
 <br>
-		<table border="3" style="margin-left:520px">
-		<tr><td>Stikliraj:</td><td>Naziv:</td><td>Kolicina:</td><td>Cena:</td></tr>
-		<form action="SacuvajCenuServlet">
+		<table border="3" style="margin-left:510px">
+		<tr><td>DA|NE</td><td>Naziv:</td><td>Kolicina:</td><td>Cena:</td></tr>
+		<form action="SacuvajOdabraneServlet">
 		<%for (Namirnice n:namirnice) {%>
 			<tr>
 			<td>
+			<input type="checkbox" id="blankCheckbox" value="<%=n.getIdNamirnicaPica()%>" name="idNamirnice">
+			|
 			<input type="checkbox" id="blankCheckbox" value="<%=n.getIdNamirnicaPica()%>" name="idNamirnice">
 			</td>
 			<td>
@@ -87,19 +98,22 @@ String email=request.getParameter("email");
 				</td>
 				<td>
 				<%=n.getKolicina()%>
+				komada
 				</td>
 				<td>
 				<%=n.getCena()%>
+				  	din.
 				</td>
 			</tr>
 				<input type="hidden" name="id" value="<%=n.getIdNamirnicaPica()%>">
 				<input type="hidden" name="email" value="<%=email%>">
 			</tr>
-			<%} %>
+			<%}%>
+			<input style="margin-left:630px;margin-top:10px;" type="submit" value="Potvrdi">
+			<input type="hidden" value="<%=id%>" name="id">
 			</form>
 		</table>
-		<input style="margin-left:585px" type="submit" value="Potvrda" class="centar">
-		<input type="hidden" value="<%=id%>" name="id">
+		
 		
 		</div>
 		<br>

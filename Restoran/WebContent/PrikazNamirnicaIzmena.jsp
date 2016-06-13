@@ -39,12 +39,13 @@ String id = request.getParameter("id");
                 <li><a href="PrikazNamirnicaIzmena.jsp?email=<%=email%>" class="navtekst1">Izmeni ponudu</a></li>
             </ul>
         </li>
+		
         <li class="navitem1">
             <a href="#" class="navtekst1">Obavestenja:</a>
             <br>
             <ul class="dropdown1">
-                <li><a href="#" class="navtekst1">Obavestenje o prihvatanju ponude</a></li>
-                <li><a href="#" class="navtekst1">Obavestenje o neprihvatanju ponude</a></li>
+                <li><a href="OdabranePonudePonudjac.jsp?email=<%=email%>" class="navtekst1">Prihvacene ponude</a></li>
+                <li><a href="OdabranePonudePonudjac.jsp?email=<%=email%>" class="navtekst1">Neprihvacene ponude</a></li>
             </ul>
         </li>
         <li style=float:right; class="navitem1"><a href="login.html" class="navtekst1">Odjavi se</a></li>
@@ -58,22 +59,22 @@ String id = request.getParameter("id");
 <br>
 		<table border="3" style="margin-left:500px">
 		<tr><td>Naziv:</td><td>Kolicina:</td><td>Cena:</td></tr>
-		<form action="SacuvajCenuServlet">
-		<%for (Namirnice n:namirnice) {%>
-			<tr>
-			<td>
-				<%=n.getNaziv()%>
-				</td>
-				<td>
-				<%=n.getKolicina()%>
-				</td>
-				<td>
-				<input type="text" name="cena" placeholder="cena u evrima">
-				</td>
-			</tr>
-				<input type="hidden" name="id" value="<%=n.getIdNamirnicaPica()%>">
-				<input type="hidden" name="email" value="<%=email%>">
-			</tr>
+			<form action="SacuvajCenuServlet">
+			<%for (Namirnice n:namirnice) {%>
+				<tr>
+					<td>
+						<%=n.getNaziv()%>
+					</td>
+					<td>
+						<%=n.getKolicina()%>
+						komada
+					</td>
+					<td>
+						<input type="text" name="cena" placeholder="cena u dinarima">
+					</td>
+						<input type="hidden" name="id" value="<%=n.getIdNamirnicaPica()%>">
+						<input type="hidden" name="email" value="<%=email%>">
+				</tr>
 			<%} %>
 			<input class="mojeDugme" style=margin-left:570px; type="submit" value="Potvrdi cenu">
 			</form>

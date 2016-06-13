@@ -9,7 +9,7 @@
 </head>
 <%
 String id = request.getParameter("id");
-
+String email = request.getParameter("email");
 PonudjacDAO ponudjacDAO = new PonudjacDAO();
 Ponudjac ponudjac1 = ponudjacDAO.getPonudjacByID(id);
 String ime = ponudjac1.getIme();
@@ -23,27 +23,28 @@ String password = ponudjac1.getPassword();
 <body style=background-color:white;>
 <nav class="navigation1">
 	<ul class="navlista1">
-		<li class="navitem1"><a href="PonudjacProfil.jsp?email=<%=email1%>" class="navtekst1">Profil</a></li>
+		<li class="navitem1"><a href="PonudjacProfil.jsp?email=<%=email%>" class="navtekst1">Profil</a></li>
 		<li class="navitem1">
             <a href="#" class="navtekst1">Spisak:</a>
             <br>
             <ul class="dropdown1">
-                <li><a href="PrikazNamirnicaCena.jsp?email=<%=email1%>" class="navtekst1">Spisak ponuda</a></li>
+                <li><a href="PrikazNamirnicaCena.jsp?email=<%=email%>" class="navtekst1">Spisak ponuda</a></li>
             </ul>
         </li>
 		<li class="navitem1">
             <a href="#" class="navtekst1">Izmeni:</a>
             <br>
             <ul class="dropdown1">
-                <li><a href="PrikazNamirnicaIzmena.jsp?email=<%=email1%>" class="navtekst1">Izmeni ponudu</a></li>
+                <li><a href="PrikazNamirnicaIzmena.jsp?email=<%=email%>" class="navtekst1">Izmeni ponudu</a></li>
             </ul>
         </li>
+		
         <li class="navitem1">
             <a href="#" class="navtekst1">Obavestenja:</a>
             <br>
             <ul class="dropdown1">
-                <li><a href="#" class="navtekst1">Obavestenje o prihvatanju ponude</a></li>
-                <li><a href="#" class="navtekst1">Obavestenje o neprihvatanju ponude</a></li>
+                <li><a href="OdabranePonudePonudjac.jsp?email=<%=email%>" class="navtekst1">Prihvacene ponude</a></li>
+                <li><a href="OdabranePonudePonudjac.jsp?email=<%=email%>" class="navtekst1">Neprihvacene ponude</a></li>
             </ul>
         </li>
         <li style=float:right; class="navitem1"><a href="login.html" class="navtekst1">Odjavi se</a></li>

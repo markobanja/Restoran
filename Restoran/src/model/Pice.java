@@ -26,6 +26,12 @@ public class Pice {
 	}
 
 
+	
+
+
+	
+
+
 	public int getIdPice() {
 		return idPice;
 	}

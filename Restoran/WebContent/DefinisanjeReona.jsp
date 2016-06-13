@@ -1,22 +1,51 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@page import="model.Pice" %>
-<%@page import="model.KartaPica" %>
-<%@page import="dao.KartaPicaDAO" %>
-<%@page import="java.util.List" %>
-<%@page import="util.ConnectionManager" %>
-<%@page import="java.sql.Statement" %>
-<%@page import="java.sql.ResultSet" %>
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<link rel="stylesheet"  href="css.css" />
-<link rel="stylesheet" href="cssNavigation.css">
-<link rel="stylesheet" href="cssfajl.css">
+  <link rel="stylesheet" href="cssNavigation.css">
+  <link rel="stylesheet" href="cssfajl.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+  #resizable { width: 150px; height: 150px; padding: 0.5em; }
+  #resizable h3 { text-align: center; margin: 0; }
+  </style>
+  <script>
+  $(function() {
+    $( "#resizable" ).resizable();
+  });
+  </script>
+  <style>
+  #draggable { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+  #droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
+  </style>
+  <script>
+  $(function() {
+    $( "#draggable" ).draggable();
+    $( "#droppable" ).droppable({
+      drop: function( event, ui ) {
+        $( this )
+          .addClass( "ui-state-highlight" )
+          .find( "p" )
+            .html( "Dropped!" );
+      }
+    });
+  });
+  </script>
 </head>
+<%
+String email = request.getParameter("email");
+%>
 <body>
-<%String email=request.getParameter("email");%>
+<input type="hidden" value=<%=email%> name="email">
 <nav class="navigation1">
 	<ul class="navlista1">
 		<li class="navitem1"><a href="ManagerPage.jsp?email=<%=email%>" class="navtekst1">Profil</a></li>
@@ -36,7 +65,7 @@
             <ul class="dropdown1">
                 <li><a href="KartaPicaUnos.jsp?email=<%=email%>" class="navtekst1">Karta pica</a></li>
                 <li><a href="JelovnikUnos.jsp?email=<%=email%>" class="navtekst1">Jelovnik</a></li>
-                <li><a href="#" class="navtekst1">Raspored i reon rada</a></li>
+                <li><a href="DefinisanjeReona.jsp?email=<%=email%>" class="navtekst1">Raspored i reon rada</a></li>
             </ul>
         </li>
         <li class="navitem1">
@@ -60,7 +89,7 @@
         <li class="navitem1">
             <a href="#" class="navtekst1">Prikaz:</a>
             <br>
-           <ul class="dropdown1">
+            <ul class="dropdown1">
             	<li><a href="Pazar.jsp?email=<%=email%>" class= "navtekst1">Prihod restorana</a></li>
                 <li><a href="OcenaRestorana.jsp?email=<%=email%>"  class="navtekst1">Ocena</a></li>
                 <li><a href="#"  class="navtekst1">Grafik posecenosti(dnevno i nedeljno)</a></li>
@@ -70,23 +99,15 @@
         <li style=float:right; class="navitem1"><a href="login.html" class="navtekst1">Odjavi se</a></li>
 	</ul>
 </nav>
-<div class="field">
-<h1 style=margin-left:60px;>Unos pica</h1>
-<h2><%= request.getAttribute("labela") %></h2>
-<form action="AddPiceServlet">
 
-  <input type="text" name="nazivPica" placeholder="naziv" class="centar"><br>
-  <br>
-  <input type="text" name="opis" placeholder="opis" class="centar"><br>
-  <br>
-  <input type="text" name="cena" placeholder="cena" class="centar"><br>
-  <br>
-  <input type="hidden" name="labela" value="<%= request.getAttribute("labela") %>">
-   <div class="polje">
-	</div>
-  <input type="submit" value="dodaj" class="centar" style=margin-left:130px;>
-  <br>
-</form>
+<div id="draggable" class="ui-widget-content">
+  <p>Drag me to my target</p>
 </div>
+ 
+<div id="droppable" class="ui-widget-header">
+  <p>Drop here</p>
+</div>
+
+
 </body>
 </html>

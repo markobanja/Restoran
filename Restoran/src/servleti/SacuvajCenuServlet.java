@@ -7,8 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.PonudaDAO;
-import model.Namirnice;
-import model.Ponuda;
+
 
 /**
  * Servlet implementation class SacuvajCenuServlet

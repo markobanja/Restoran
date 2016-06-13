@@ -52,6 +52,28 @@ public class KorisnikDAO {
 		return korisnik;
 	}
 	
+	public Korisnik GetKorisnikById(int id) {
+		  Korisnik korisnik = null;
+		  try {
+		   Connection conn = ConnectionManager.getConnection();
+		   String update = "select * from korisnik where idKor=?";
+		   PreparedStatement pstmt = conn.prepareStatement(update);
+		   pstmt.setInt(1, id);
+		   ResultSet rset = pstmt.executeQuery();
+		   if (rset.next()) {
+		    String username = rset.getString(2);
+		    String lozinka = rset.getString(5);
+		    String prezime = rset.getString(3);
+		    String email1 = rset.getString(4);
+		    int idKor= rset.getInt(1);
+		    korisnik = new Korisnik(username, lozinka, prezime, email1, idKor);
+		   }
+		  } catch (SQLException e) {
+		   // TODO Auto-generated catch block
+		   e.printStackTrace();
+		  }
+		  return korisnik;
+		 }
 	
 	public Korisnik KorisnikEmail(String email) {
 		Korisnik korisnik = null;

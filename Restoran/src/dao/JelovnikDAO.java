@@ -193,6 +193,31 @@ public class JelovnikDAO {
 		return retVal;
 		
 	}
+	public Jelo GetJeloById(int id) {
+		  Jelo jelo = null;
+		  try {
+		   Connection conn = ConnectionManager.getConnection();
+		   String update = "select * from jelo where idjelo=?";
+		   PreparedStatement pstmt = conn.prepareStatement(update);
+		   pstmt.setInt(1, id);
+		   ResultSet rset = pstmt.executeQuery();
+		   if (rset.next()) {
+			int idjelo= rset.getInt(1);
+		    String naziv = rset.getString(2);
+		    String opis = rset.getString(3);
+		    double cijena = rset.getDouble(4);
+		    int idJelovnik = rset.getInt(5);
+		    JelovnikDAO jeloDAO = new JelovnikDAO();
+		    Jelovnik jelovnik = jeloDAO.GetJelovnikById(idJelovnik);
+		    
+		    jelo = new Jelo(idjelo, naziv, opis, cijena, jelovnik);
+		   }
+		  } catch (SQLException e) {
+		   // TODO Auto-generated catch block
+		   e.printStackTrace();
+		  }
+		  return jelo;
+		 }
 	public boolean getUpdateJelo(String idJelo, String naziv,String opis, String cijena) {
 		boolean retVal = false;
 		try {

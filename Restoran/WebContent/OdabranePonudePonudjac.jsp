@@ -3,10 +3,9 @@
 <%@page import="dao.MenadzerRestoranaDao" %>
 <%@page import="model.MenadzerRestorana" %>
 <%@page import="dao.PonudaDAO" %>
+<%@page import="model.Ponuda" %>
 <%@page import="model.Namirnice" %>
 <%@page import="java.util.List" %>
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,13 +14,17 @@
 <link rel="stylesheet" href="cssNavigation.css">
 <link rel="stylesheet" href="cssfajl.css">
 </head>
-<body style="background:white">
+<body style=background-color:white>
 <%
 PonudaDAO ponudaDAO = new PonudaDAO();
-List<Namirnice> namirnice = ponudaDAO.prikazSvihNamirnica();
-String id = request.getParameter("id");
+List<Namirnice>namirnice = ponudaDAO.prikazSvihNamirnica();
+for(Namirnice n: namirnice) {
+	System.out.println(n.getNaziv());
+	System.out.println(n.getKolicina());
+	System.out.println(n.getCena());
+}
+String email=request.getParameter("email");
 %>
-<%String email=request.getParameter("email");%>
 <nav class="navigation1">
 	<ul class="navlista1">
 		<li class="navitem1"><a href="PonudjacProfil.jsp?email=<%=email%>" class="navtekst1">Profil</a></li>
@@ -51,35 +54,35 @@ String id = request.getParameter("id");
         <li style=float:right; class="navitem1"><a href="login.html" class="navtekst1">Odjavi se</a></li>
 	</ul>
 </nav>
-<div>
-<h1 style="margin-left:370px">Spisak trazenih namirnica restorana:</h1>
-<br>
-<br>
-<br>
-<br>
-		<table border="3" style="margin-left:550px">
-		<tr><td>Naziv:</td><td>Kolicina:</td></tr>
-		<form action="SacuvajCenuServlet">
-		<%for (Namirnice n:namirnice) {%>
-			<tr>
-			<td>
-				<%=n.getNaziv()%>
-				</td>
-				<td>
-				<%=n.getKolicina()%>
-				komada
-				</td>
-			</tr>
-				<input type="hidden" name="id" value="<%=n.getIdNamirnicaPica()%>">
-				<input type="hidden" name="email" value="<%=email%>">
-			</tr>
-			<%} %>
-			</form>
-		</table>
-		<br>
-		<input type="hidden" value="<%=id%>" name="id">
-		<a class="mojeDugme" style=margin-left:570px; type="submit" href="PrikazNamirnicaIzmena.jsp?email=<%=email%>">Izmeni</a>
+	<div class="menResPon">
+		
 		</div>
-		<br>
+		
+		<div class="markoPrikaz">
+			
+			<div>
+				<div>
+				<table bordercolor=black  border="1" style=margin-left:-300px;margin-top:300px;font-size:25px;background:white >
+				
+					<tr >
+						<td colspan="4" style="text-align: center;" class="tabelastil">Odabrana ponuda</td>
+						
+					</tr>
+					<tr>
+						<td class="tabelastil">Naziv</td>
+						<td class="tabelastil">Kolicina(komada)</td>
+						<td class="tabelastil">Cena(din.)</td>
+					</tr>
+					
+					<tr>
+						<td><%=request.getParameter("naziv")%></td>
+						<td><%=request.getParameter("kolicina")%></td>
+						<td><%=request.getParameter("cena")%></td>
+					</tr>
+				</table>
+			</div>
+			</div>
+			
+		</div>
 </body>
 </html>

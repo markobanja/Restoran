@@ -265,4 +265,44 @@
     <servlet-name>SacuvajCenuServlet</servlet-name>
     <url-pattern>/SacuvajCenuServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>OcenaUsluge</display-name>
+    <servlet-name>OcenaUsluge</servlet-name>
+    <servlet-class>servleti.OcenaUsluge</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OcenaUsluge</servlet-name>
+    <url-pattern>/OcenaUsluge</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PrikazKonobara</display-name>
+    <servlet-name>PrikazKonobara</servlet-name>
+    <servlet-class>servleti.PrikazKonobara</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PrikazKonobara</servlet-name>
+    <url-pattern>/PrikazKonobara</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SacuvajOdabraneServlet</display-name>
+    <servlet-name>SacuvajOdabraneServlet</servlet-name>
+    <servlet-class>servleti.SacuvajOdabraneServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SacuvajOdabraneServlet</servlet-name>
+    <url-pattern>/SacuvajOdabraneServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SacuvajOdbijeneServlet</display-name>
+    <servlet-name>SacuvajOdbijeneServlet</servlet-name>
+    <servlet-class>servleti.SacuvajOdbijeneServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SacuvajOdbijeneServlet</servlet-name>
+    <url-pattern>/SacuvajOdbijeneServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

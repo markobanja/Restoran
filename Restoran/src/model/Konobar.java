@@ -36,6 +36,26 @@ public class Konobar {
 
 
 
+	public Konobar(int idKonobar, String imeKonobar, String prezimeKonobar, int konfekcijskiBr, String datumRodjenja,
+			String velicinaObuce, double prihod, String email, String password, Restoran idRestoran) {
+		super();
+		this.idKonobar = idKonobar;
+		this.imeKonobar = imeKonobar;
+		this.prezimeKonobar = prezimeKonobar;
+		this.konfekcijskiBr = konfekcijskiBr;
+		this.datumRodjenja = datumRodjenja;
+		this.velicinaObuce = velicinaObuce;
+		this.prihod = prihod;
+		this.email = email;
+		this.password = password;
+		this.idRestoran = idRestoran;
+	}
+
+
+
+
+
+
 	public Konobar(String imeKonobar, String prezimeKonobar, int konfekcijskiBr, String datumRodjenja,
 			String velicinaObuce, String email, String password, Restoran idRestoran) {
 		super();

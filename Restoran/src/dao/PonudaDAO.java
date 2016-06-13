@@ -10,6 +10,7 @@ import java.util.List;
 
 import model.Namirnice;
 import model.Ponuda;
+import model.Ponudjac;
 import util.ConnectionManager;
 
 public class PonudaDAO {
@@ -201,6 +202,34 @@ public class PonudaDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return ponuda;
+	}
+
+	public Ponuda getPonuda(String idNamirnice) {
+		Ponuda ponuda = null;
+		try{
+		Connection conn = ConnectionManager.getConnection();
+		String selectSQL = "SELECT * FROM ponuda WHERE idPonuda = ?";
+		PreparedStatement preparedStatement = conn
+				.prepareStatement(selectSQL);
+		preparedStatement.setString(1, idNamirnice);
+		ResultSet rset = preparedStatement.executeQuery();
+
+		if (rset.next()) {
+			int id = rset.getInt(1);
+			String naziv = rset.getString(2);
+			String kolicina = rset.getString(3);
+			String cena = rset.getString(5);
+			
+			ponuda= new Ponuda(id, naziv, kolicina,cena);
+		}
+		rset.close();
+		preparedStatement.close();
+	} catch (Exception ex) {
+		ex.printStackTrace();
+	}
+
+		
 		return ponuda;
 	}
 }

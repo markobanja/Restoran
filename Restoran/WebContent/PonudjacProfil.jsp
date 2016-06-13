@@ -17,21 +17,13 @@ Ponudjac ponudjac = null;
 Ponudjac ponudjac1 = ponudjacDAO.getPonudjacByEmail(email);
 ponudjac=ponudjac1;
 String ime = ponudjac.getIme();
-System.out.println(ime);
 String prezime = ponudjac.getPrezime();
-System.out.println(prezime);
 String nazivKompanije = ponudjac.getNazivKompanije();
-System.out.println(nazivKompanije);
 String email1= ponudjac.getEmail();
-System.out.println(email1);
 String password = ponudjac.getPassword();
-System.out.println(password);
 String adresa = ponudjac.getAdresa();
-System.out.println(adresa);
 String brojTelefona = ponudjac.getBrojTelefona();
-System.out.println(brojTelefona);
 int id= ponudjac.getId();
-System.out.println(id);
 %>
 <nav class="navigation1">
 	<ul class="navlista1">
@@ -55,8 +47,8 @@ System.out.println(id);
             <a href="#" class="navtekst1">Obavestenja:</a>
             <br>
             <ul class="dropdown1">
-                <li><a href="#" class="navtekst1">Obavestenje o prihvatanju ponude</a></li>
-                <li><a href="#" class="navtekst1">Obavestenje o neprihvatanju ponude</a></li>
+                <li><a href="OdabranePonudePonudjac.jsp?email=<%=email%>" class="navtekst1">Prihvacene ponude</a></li>
+                <li><a href="OdabranePonudePonudjac.jsp?email=<%=email%>" class="navtekst1">Neprihvacene ponude</a></li>
             </ul>
         </li>
         <li style=float:right; class="navitem1"><a href="login.html" class="navtekst1">Odjavi se</a></li>

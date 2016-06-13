@@ -179,7 +179,6 @@ public class KartaPicaDAO {
 			pstmt.setString(2, pice.getOpis());
 			pstmt.setDouble(3,pice.getCijena());
 			pstmt.setInt(4,pice.getIdKart().getIdKarte());
-			
 			if (pstmt.executeUpdate() == 1) {
 				System.out.println("insert");
 				retVal = true;
@@ -247,6 +246,31 @@ public class KartaPicaDAO {
 	}
 	return karta;
 	}
+	public Pice GetPiceById(int id) {
+		  Pice pice = null;
+		  try {
+		   Connection conn = ConnectionManager.getConnection();
+		   String update = "select * from pice where idPice=?";
+		   PreparedStatement pstmt = conn.prepareStatement(update);
+		   pstmt.setInt(1, id);
+		   ResultSet rset = pstmt.executeQuery();
+		   if (rset.next()) {
+			int idPice= rset.getInt(1);
+		    String naziv = rset.getString(2);
+		    String opis = rset.getString(3);
+		    double cijena = rset.getDouble(4);
+		    int idKart = rset.getInt(5);
+		    KartaPicaDAO kartaDAO = new KartaPicaDAO();
+		    KartaPica kartaPica = kartaDAO.GetKartaPicaById(idKart);
+		    
+		    pice = new Pice(idPice,naziv,opis,cijena,kartaPica);
+		   }
+		  } catch (SQLException e) {
+		   // TODO Auto-generated catch block
+		   e.printStackTrace();
+		  }
+		  return pice;
+		 }
 	
 	
 }

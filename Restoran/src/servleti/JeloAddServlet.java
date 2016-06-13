@@ -32,6 +32,7 @@ public class JeloAddServlet extends HttpServlet {
 		String opis = request.getParameter("opis");
 		System.out.println(opis);
 		String price = request.getParameter("cena");
+		String email = request.getParameter("email");
 		System.out.println(price);
 		double cena = Double.parseDouble(price);
 		
@@ -42,7 +43,7 @@ public class JeloAddServlet extends HttpServlet {
 		Jelo jelo = new Jelo(nazivJela,opis,cena,jelovnik);
 		JelovnikDAO jeloDAO = new JelovnikDAO();
 		jeloDAO.insertJelo(jelo);
-		response.sendRedirect("UnosJelo.jsp");
+		response.sendRedirect("UnosJelo.jsp?email="+email);
 		System.out.println("insert");
 		return;
 	}

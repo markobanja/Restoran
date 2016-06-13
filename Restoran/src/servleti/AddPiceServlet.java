@@ -33,6 +33,7 @@ public class AddPiceServlet extends HttpServlet {
 		System.out.println(opis);
 		String price = request.getParameter("cena");
 		System.out.println(price);
+		String email = request.getParameter("email");
 		double cena = Double.parseDouble(price);
 		
 		String naziv = request.getParameter("labela");
@@ -42,7 +43,7 @@ public class AddPiceServlet extends HttpServlet {
 		Pice pice = new Pice(nazivPica,opis,cena,karta);
 		KartaPicaDAO kartaDAO = new KartaPicaDAO();
 		kartaDAO.insertPice(pice);
-		response.sendRedirect("UnosPica.jsp");
+		response.sendRedirect("UnosPica.jsp?email="+email);
 		System.out.println("insert");
 		return;
 	}

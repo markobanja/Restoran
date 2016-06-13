@@ -30,25 +30,26 @@ System.out.println(idPonudjac);
 	<ul class="navlista1">
 		<li class="navitem1"><a href="PonudjacProfil.jsp?email=<%=email%>" class="navtekst1">Profil</a></li>
 		<li class="navitem1">
-            <a href="#" class="navtekst1">Izmeni:</a>
-            <br>
-            <ul class="dropdown1">
-                <li><a href="#" class="navtekst1">Izmeni ponudu</a></li>
-            </ul>
-        </li>
-		<li class="navitem1">
             <a href="#" class="navtekst1">Spisak:</a>
             <br>
             <ul class="dropdown1">
-                <li><a href="UnosPonude.jsp?email=<%=email%>" class="navtekst1">Unesi ponudu</a></li>
+                <li><a href="PrikazNamirnicaCena.jsp?email=<%=email%>" class="navtekst1">Spisak ponuda</a></li>
             </ul>
         </li>
+		<li class="navitem1">
+            <a href="#" class="navtekst1">Izmeni:</a>
+            <br>
+            <ul class="dropdown1">
+                <li><a href="PrikazNamirnicaIzmena.jsp?email=<%=email%>" class="navtekst1">Izmeni ponudu</a></li>
+            </ul>
+        </li>
+		
         <li class="navitem1">
             <a href="#" class="navtekst1">Obavestenja:</a>
             <br>
             <ul class="dropdown1">
-                <li><a href="#" class="navtekst1">Obavestenje o prihvatanju ponude</a></li>
-                <li><a href="#" class="navtekst1">Obavestenje o neprihvatanju ponude</a></li>
+                <li><a href="OdabranePonudePonudjac.jsp?email=<%=email%>" class="navtekst1">Prihvacene ponude</a></li>
+                <li><a href="OdabranePonudePonudjac.jsp?email=<%=email%>" class="navtekst1">Neprihvacene ponude</a></li>
             </ul>
         </li>
         <li style=float:right; class="navitem1"><a href="login.html" class="navtekst1">Odjavi se</a></li>
@@ -64,7 +65,7 @@ System.out.println(idPonudjac);
   <input type="hidden" name="ponudjac" value=<%=idPonudjac%>>
 <br>
 <br>
-  <input type="submit" value="Unesi" class="centar">
+<input type="submit" value="Unesi" class="centar">
 </form>
 </div>
 </body>

@@ -6,19 +6,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.KartaPicaDAO;
-import model.KartaPica;
+import dao.PonudaDAO;
+import dao.PonudjacDAO;
+import model.Ponuda;
+import model.Ponudjac;
 
 /**
- * Servlet implementation class KartaPicaAddServlet
+ * Servlet implementation class SacuvajOdabraneServlet
  */
-public class KartaPicaAddServlet extends HttpServlet {
+public class SacuvajOdabraneServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public KartaPicaAddServlet() {
+    public SacuvajOdabraneServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,20 +29,18 @@ public class KartaPicaAddServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String naziv = request.getParameter("naziv");
-		String email = request.getParameter("email");
-		request.setAttribute("labela", naziv);
-		KartaPica karta = new KartaPica(naziv);
-		KartaPicaDAO kartaDAO = new KartaPicaDAO();
-		kartaDAO.insertKartaPica(karta);
-		request.getRequestDispatcher("UnosPica.jsp?email="+email).forward(request, response);
+		String idNamirnice = request.getParameter("idNamirnice");
+		
+		PonudaDAO ponudaDAO = new PonudaDAO();
+		Ponuda ponuda = ponudaDAO.getPonuda(idNamirnice);
 		
 		
-		return;
-		
+		String naziv = ponuda.getNaziv();
+		String cena= ponuda.getCena();
+		String kolicina = ponuda.getKolicina();
+		String email= request.getParameter("email");
+		request.getRequestDispatcher("OdabranePonude.jsp?naziv="+naziv+"&cena="+cena+"&kolicina="+kolicina+"&email="+email).forward(request, response);
 	}
-	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

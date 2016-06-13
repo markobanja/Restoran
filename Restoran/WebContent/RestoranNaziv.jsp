@@ -46,8 +46,7 @@ int idRestorana = restoran.getId();
             <ul class="dropdown1">
                 <li><a href="KartaPicaUnos.jsp?email=<%=email%>" class="navtekst1">Karta pica</a></li>
                 <li><a href="JelovnikUnos.jsp?email=<%=email%>" class="navtekst1">Jelovnik</a></li>
-                <li><a href="#" class="navtekst1">Raspored rada</a></li>
-                <li><a href="#" class="navtekst1">Reon rada</a></li>
+                <li><a href="#" class="navtekst1">Raspored i reon rada</a></li>
             </ul>
         </li>
         <li class="navitem1">
@@ -64,10 +63,21 @@ int idRestorana = restoran.getId();
             <br>
             <ul class="dropdown1">
             	<li><a href="UnosPonudeRestorana.jsp?email=<%=email%>" class= "navtekst1">Unos namirnica i pica</a></li>
+            	<li><a href="PrikazNamirnica.jsp?email=<%=email%>" class= "navtekst1">Prikaz potrebstina</a></li>
                 <li><a href="OdabirPonude.jsp?email=<%=email%>" class="navtekst1">Odabir ponude</a></li>
             </ul>
         </li>
-        <li class="navitem1"><a href="login.html" class="navtekst1">Odjavi se</a></li>
+        <li class="navitem1">
+            <a href="#" class="navtekst1">Prikaz:</a>
+            <br>
+           <ul class="dropdown1">
+            	<li><a href="Pazar.jsp?email=<%=email%>" class= "navtekst1">Prihod restorana</a></li>
+                <li><a href="OcenaRestorana.jsp?email=<%=email%>"  class="navtekst1">Ocena</a></li>
+                <li><a href="#"  class="navtekst1">Grafik posecenosti(dnevno i nedeljno)</a></li>
+                <li><a href="Konobari.jsp?email=<%=email%>"  class="navtekst1">Prikaz konobara</a></li>                
+            </ul>
+        </li>
+        <li style=float:right; class="navitem1"><a href="login.html" class="navtekst1">Odjavi se</a></li>
 	</ul>
 </nav>
 <br>

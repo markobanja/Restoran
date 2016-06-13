@@ -34,6 +34,12 @@ public class Jelo {
 
 
 
+	public Jelo(int idjelo, String naziv, String opis, double cijena, int idJelovnik) {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 	public int getIdJelo() {
 		return idJelo;
 	}

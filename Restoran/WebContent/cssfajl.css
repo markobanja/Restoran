@@ -134,6 +134,12 @@ img.profilPon{
 	margin-top:180px;
 	margin-left:470px;
 }
+img.profilKon{
+	height:150px;
+	width: auto;
+	margin-top:180px;
+	margin-left:450px;
+}
 td.podaci{
 	padding: 10px
 }
@@ -153,6 +159,13 @@ div.data2{
 	font-size:20px;
 	margin-left:50px;
 	margin-top:-150px;
+	float:left;
+}
+.markoPrikaz{
+	font-family:Arial;
+	font-size:20px;
+	margin-left:660px;
+	margin-top:-380px;
 	float:left;
 }
 h1.jelovnik{

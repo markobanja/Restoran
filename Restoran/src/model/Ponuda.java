@@ -53,6 +53,15 @@ public class Ponuda {
 	}
 
 
+	public Ponuda(int id, String naziv, String kolicina, String cena) {
+		super();
+		this.idPonuda = id;
+		this.naziv = naziv;
+		this.kolicina = kolicina;
+		this.cena = cena;
+	}
+
+
 	public int getIdPonuda() {
 		return idPonuda;
 	}
